@@ -1,17 +1,13 @@
 <h1>Welcome to Twilight Imperium Stats!</h1>
-{{#view TiBattles.Die1View}}
-  <label>Probability Die #1
-    <input type="range" min="0.0" max="1.0" step="0.1" {{bindAttr value="probability"}}>
-  </label>
-  <label>Number of Rolls #1
-    <input type="range" min="0" max="10" step="1" {{bindAttr value="numRoll"}}>
-  </label>
-{{/view}}
-{{#view TiBattles.Die2View}}
-  <label>Probability Die #2
-    <input type="range" min="0.0" max="1.0" step="0.1" {{bindAttr value="probability"}}>
-  </label>
-  <label>Number of Rolls #2
-    <input type="range" min="0" max="10" step="1" {{bindAttr value="numRoll"}}>
-  </label>
-{{/view}}
+{{#collection SC.TemplateCollectionView contentBinding="TiBattles.diceStatsController"}}
+  {{#view TiBattles.DieView}}
+    <label>Probability {{title}}
+      <input type="range" min="0.0" max="1.0" step="0.1" {{bindAttr value="probability"}}>
+      <input type="number" {{bindAttr value="probability"}}>
+    </label>
+    <label>Number of Rolls {{title}}
+      <input type="range" min="0" max="10" step="1" {{bindAttr value="numRolls"}}>
+      <input type="number" {{bindAttr value="numRolls"}}>
+    </label>
+  {{/view}}
+{{/collection}}
